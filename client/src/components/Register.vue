@@ -1,53 +1,53 @@
 <template>
-  <div>
-    <h1>Registro</h1>
-    <div class='row justify-content-center'>
-      <div class='col-sm-4'>
-        <label>Email</label>
-        <input type="email" id="email" placeholder="Correo" class="form-control" v-model="email" />
+  <v-layout column>
+    <v-flex xs6 offset-xs3>
+      <div class="white elevation-2">
+        <v-toolbar flat dense class="cyan" dark>
+          <v-toolbar-title>Registro</v-toolbar-title>
+        </v-toolbar>
+
+        <div class="m-4">
+          <input type="email" id="email" placeholder="Correo" v-model="email" class="my-2" />
+          <input type="password" id="password" placeholder="Clave" v-model="password" class="my-2" />
+          <button class="btn btn-success my-2" @click="register">
+            Registrar
+          </button>
+          <div class="text-danger mt-2" v-html="error" />
+        </div>
       </div>
-    </div>
-    <div class='row justify-content-center mt-2'>
-      <div class='col-sm-4'>
-        <label>Password</label>
-        <input type="password" id="password" placeholder="Clave" class="form-control" v-model="password" />
-      </div>
-    </div>
-    <div class='row justify-content-center mt-2'>
-      <div class='col-sm-4'>
-        <button class="btn btn-success" @click="register">
-          Registrar
-        </button>
-      </div>
-    </div>
-  </div>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
 
 export default {
-  name: 'HelloWorld',
+  name: 'Register',
   data () {
     return {
-      email: 'abcx',
-      password: '123'
+      email: '',
+      password: '',
+      error: null
     }
   },
   methods: {
     async register () {
-      const response = await AuthenticationService.register({
-        email: this.email,
-        password: this.password
-      })
-      console.log(response.data)
+      try {
+        await AuthenticationService.register({
+          email: this.email,
+          password: this.password
+        })
+      } catch (error) {
+        this.error = error.response.data.error
+      }
     }
-  },
-  watch: {
+  }
+  /*  watch: {
     email (value) {
       console.log('email cambiado', value)
     }
-  }
+  } */
 }
 </script>
 
