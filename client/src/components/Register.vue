@@ -1,22 +1,31 @@
 <template>
-  <v-layout column>
-    <v-flex xs6 offset-xs3>
-      <div class="white elevation-2">
-        <v-toolbar flat dense class="cyan" dark>
-          <v-toolbar-title>Registro</v-toolbar-title>
-        </v-toolbar>
-
-        <div class="m-4">
-          <input type="email" id="email" placeholder="Correo" v-model="email" class="my-2" />
-          <input type="password" id="password" placeholder="Clave" v-model="password" class="my-2" />
-          <button class="btn btn-success my-2" @click="register">
+  <b-row class="justify-content-center">
+    <b-col col sm="4">
+      <b-card no-body>
+        <b-card-header class="text-primary">
+          <h3>Registro</h3>
+        </b-card-header>
+        <b-card-body>
+          <form name="vue-register" autocomplete="off">
+            <b-card-text>
+              <label>Email</label>
+              <b-input type="email" id="email" placeholder="Correo" v-model="email" label="Email" />
+            </b-card-text>
+            <b-card-text>
+              <label class="w-100">Password</label>
+              <b-input class="form-control" type="password" id="password" placeholder="Clave" v-model="password" autocomplete="new-password" />
+            </b-card-text>
+          </form>
+          <b-button variant="success" class="mt-2" @click="register">
             Registrar
-          </button>
-          <div class="text-danger mt-2" v-html="error" />
-        </div>
-      </div>
-    </v-flex>
-  </v-layout>
+          </b-button>
+        </b-card-body>
+        <b-card-footer>
+          <div class="text-danger" v-html="error" />
+        </b-card-footer>
+      </b-card>
+    </b-col>
+  </b-row>
 </template>
 
 <script>
