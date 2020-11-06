@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
-import Songs from '@/components/Songs'
+import Songs from '@/components/Songs/Index'
 import SongsCreate from '@/components/SongsCreate'
 import SongsUpdate from '@/components/SongsUpdate'
 
@@ -37,7 +37,7 @@ export default new Router({
       component: SongsCreate
     },
     {
-      path: '/songs/update',
+      path: '/songs/update/:songId',
       name: 'songs-update',
       component: SongsUpdate
     }

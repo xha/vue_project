@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Panel from '@/components/globals/Panel'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -11,6 +12,7 @@ import store from '@/store/store'
 import { ValidationObserver, ValidationProvider, extend, localize } from 'vee-validate'
 import en from 'vee-validate/dist/locale/en.json'
 import * as rules from 'vee-validate/dist/rules'
+
 /*  import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -34,6 +36,7 @@ localize('en', en)
 
 Vue.component('ValidationObserver', ValidationObserver)
 Vue.component('ValidationProvider', ValidationProvider)
+Vue.component('panel', Panel)
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
