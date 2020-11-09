@@ -1,7 +1,7 @@
 const { Song } = require('../models')
 const { Op } = require('sequelize')
 
-const index  = async (req, res) => { 
+const index = async (req, res) => {
   try {
     let songs = null
     const search = req.query.search
@@ -31,7 +31,7 @@ const index  = async (req, res) => {
   }
 }
 
-const show = async (req, res) => { 
+const show = async (req, res) => {
   try {
     const songs = await Song.findByPk(req.params.songId)
     res.send(songs)
@@ -42,7 +42,7 @@ const show = async (req, res) => {
   }
 }
 
-const post  = async (req, res) => { 
+const post = async (req, res) => {
   try {
     const songs = await Song.create(req.body)
     res.send(songs)
@@ -54,7 +54,7 @@ const post  = async (req, res) => {
   }
 }
 
-const put  = async (req, res) => { 
+const put = async (req, res) => {
   try {
     const songs = await Song.update(req.body, {
       where: {
@@ -62,7 +62,7 @@ const put  = async (req, res) => {
       }
     })
 
-    if (songs==1) {
+    if (songs === 1) {
       const songs2 = await Song.findByPk(req.params.songId)
       res.send(songs2)
     } else {

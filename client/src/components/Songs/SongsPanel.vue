@@ -20,6 +20,7 @@
             {{song.album}}
             </b-col>
             <b-col col sm="3" class="pb-1">
+            <router-link class="btn btn-info" tag="button" :to="{ name: 'songs-update', params: { songId: song.id } }">Update 1</router-link>
             <b-button variant="info" @click="navegateTo({name: 'songs-update', params: {songId: song.id}})" slot="action">
                 Update
             </b-button>

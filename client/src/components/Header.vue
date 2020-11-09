@@ -6,12 +6,13 @@
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
         <b-nav-item class="home" href="#" @click="navegateTo('/songs')">Browse</b-nav-item>
+        <router-link class="nav-link" tag="a" :to="{name: 'songs'}">Igual</router-link>
       </b-navbar-nav>
 
       <!-- Right aligned nav items  -->
       <b-navbar-nav class="ml-auto">
         <b-nav-item href="#" @click="navegateTo('/login')" v-if="!$store.state.isUserLoggedIn">Login</b-nav-item>
-        <b-nav-item href="#" @click="navegateTo('/register')" v-if="!$store.state.isUserLoggedIn">Register</b-nav-item>
+        <b-nav-item href="#" :to="{name: 'register'}" v-if="!$store.state.isUserLoggedIn">Register</b-nav-item>
         <b-nav-item href="#" @click="logout" v-if="$store.state.isUserLoggedIn">Logout</b-nav-item>
         <!--
         <b-nav-form>
